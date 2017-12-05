@@ -23,7 +23,8 @@ const defaultState = [
 class Application extends Component {
   state = {
     // Set the initial state,
-  };
+    item: defaultState
+};
 
   // How are we going to manipualte the state?
   // Ideally, users are going to want to add, remove,
@@ -31,12 +32,11 @@ class Application extends Component {
 
   render() {
     // Get the items from state
-
     return (
       <div className="Application">
         <NewItem />
         <CountDown />
-        <Items title="Unpacked Items" items={[]} />
+        <Items title="Unpacked Items" items={this.state.item} />
         <Items title="Packed Items" items={[]} />
         <button className="button full-width">Mark All As Unpacked</button>
       </div>
