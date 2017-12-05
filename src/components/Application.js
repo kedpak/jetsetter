@@ -20,24 +20,38 @@ const defaultState = [
   { value: 'Sandwich', id: uniqueId(), packed: true },
 ];
 
+const packed = [];
+const unpacked = [];
+
 class Application extends Component {
-  state = {
-    // Set the initial state,
-    item: defaultState
-};
+  constructor(props) {
+    super(props);
+    this.state = {
+      // Set the initial state,
+      item: defaultState
+    }
+    this.setPack = this.setPack.bind(this);
+  }
+
 
   // How are we going to manipualte the state?
   // Ideally, users are going to want to add, remove,
   // and check off items, right?
+  setPack() {
+    this.state.item.map(item => {
+    return item.packed === false ? unpacked.push(item) : packed.push(item)
+    })
+  }
 
   render() {
     // Get the items from state
+    this.setPack();
     return (
       <div className="Application">
         <NewItem />
         <CountDown />
-        <Items title="Unpacked Items" items={this.state.item} />
-        <Items title="Packed Items" items={[]} />
+        <Items title="Unpacked Items" items={unpacked} />
+        <Items title="Packed Items" items={packed} />
         <button className="button full-width">Mark All As Unpacked</button>
       </div>
     );
