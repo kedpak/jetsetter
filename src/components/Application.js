@@ -52,6 +52,13 @@ class Application extends Component {
     });
     this.setState({item});
   }
+
+  checkAll = () => {
+    const item = this.state.item.map(item => {
+      return {...item, packed: false}
+    });
+    this.setState({item});
+  }
   render() {
     // Get the items from state
     const { item } = this.state;
@@ -63,7 +70,7 @@ class Application extends Component {
         <CountDown />
         <Items title="Unpacked Items" items={unpacked} onRemove={this.removeItem} onCheckOff={this.checkItem}/>
         <Items title="Packed Items" items={packed} onRemove={this.removeItem} onCheckOff={this.checkItem}/>
-        <button className="button full-width">Mark All As Unpacked</button>
+        <button className="button full-width" onClick={this.checkAll}>Mark All As Unpacked</button>
       </div>
     );
   }
