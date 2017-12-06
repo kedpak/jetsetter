@@ -31,24 +31,31 @@ class Application extends Component {
       item: defaultState
     }
     this.setPack = this.setPack.bind(this);
+    this.addItem = this.addItem.bind(this);
   }
 
 
   // How are we going to manipualte the state?
   // Ideally, users are going to want to add, remove,
   // and check off items, right?
-  setPack() {
+  setPack = () => {
+    /* function to set packed and unpacked items into new array, can also use filter */
     this.state.item.map(item => {
     return item.packed === false ? unpacked.push(item) : packed.push(item)
     })
   }
 
+  addItem = (newItem) => {
+    this.setState({
+      item: [newItem, ...this.state.item]
+    })
+  }
   render() {
     // Get the items from state
     this.setPack();
     return (
       <div className="Application">
-        <NewItem />
+        <NewItem onSubmit={this.addItem}/>
         <CountDown />
         <Items title="Unpacked Items" items={unpacked} />
         <Items title="Packed Items" items={packed} />
