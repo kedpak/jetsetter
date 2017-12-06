@@ -9,6 +9,7 @@ class NewItem extends Component {
   handleChange = event => {
     // Do something when the state of this input changes.
     const value = event.target.value;
+    console.log(value);
     this.setState({value});
   };
 
