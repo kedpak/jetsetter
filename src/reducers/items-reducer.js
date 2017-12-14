@@ -10,10 +10,12 @@ export default function(state = {}, action) {
     case 'MARK_ALL_AS_UNPACKED':
 	const newObj = Object.assign({}, state);
 	newObj.map(item => { 
-		{spacked: true} 
+		{packed: true} 
 	    });
 	return newObj;
-
+    case 'ADD_NEW_ITEM': 
+	const item = action.item;
+	return [...state, item];
     }
 
   return state;
