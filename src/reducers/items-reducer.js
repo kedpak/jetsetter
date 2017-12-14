@@ -5,9 +5,16 @@ export default function(state = {}, action) {
     case 'TOGGLE_ITEM': return state.map(item => {
 	    if (item.id === action.id) return {...item, packed: !item.packed};
 	    return item.packed;
-	}
-    }
+	});
     case 'REMOVE_ITEM': return state.filter(item.id !== action.id);
+    case 'MARK_ALL_AS_UNPACKED':
+	const newObj = Object.assign({}, state);
+	newObj.map(item => { 
+		{spacked: true} 
+	    });
+	return newObj;
+
+    }
 
   return state;
 }

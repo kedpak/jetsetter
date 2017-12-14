@@ -68,7 +68,7 @@ describe('Item Actions', () => {
   });
 
   describe('markAllAsUnpacked', () => {
-    xit('should return MARK_ALL_AS_UNPACKED as the item type', () => {
+    it('should return MARK_ALL_AS_UNPACKED as the item type', () => {
       const action = markAllAsUnpacked('item name');
       expect(action.type).toBe(constants.MARK_ALL_AS_UNPACKED);
     });

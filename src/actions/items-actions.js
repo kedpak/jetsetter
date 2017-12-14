@@ -20,4 +20,6 @@ export const removeItem = (id) => ({
 	id: id
 });
 
-export const markAllAsUnpacked = () => ({});
+export const markAllAsUnpacked = () => ({
+	type: MARK_ALL_AS_UNPACKED
+});
