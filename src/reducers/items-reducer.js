@@ -6,13 +6,10 @@ export default function(state = {}, action) {
 	    if (item.id === action.id) return {...item, packed: !item.packed};
 	    return item.packed;
 	});
-    case 'REMOVE_ITEM': return state.filter(item.id !== action.id);
+    case 'REMOVE_ITEM': return state.filter(item => item.id !== action.id);
     case 'MARK_ALL_AS_UNPACKED':
-	const newObj = Object.assign({}, state);
-	newObj.map(item => { 
-		{packed: true} 
-	    });
-	return newObj;
+	return state.map(item => item.packed = true);
+
     case 'ADD_NEW_ITEM': 
 	const item = action.item;
 	return [...state, item];

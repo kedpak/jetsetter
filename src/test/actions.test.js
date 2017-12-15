@@ -101,7 +101,7 @@ describe('Filter Actions', () => {
       expect(action.type).toBe(constants.UPDATE_UNPACKED_ITEMS_FILTER);
     });
 
-    xit('should return the provided text', () => {
+    it('should return the provided text', () => {
       const text = 'item name';
       const action = updateUnpackedItemsFilter(text);
       expect(action.text).toBe(text);
