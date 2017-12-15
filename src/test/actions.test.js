@@ -104,7 +104,7 @@ describe('Filter Actions', () => {
     it('should return the provided text', () => {
       const text = 'item name';
       const action = updateUnpackedItemsFilter(text);
-      expect(action.text).toBe(text);
+      expect(action.filter).toBe(text);
     });
   });
 
